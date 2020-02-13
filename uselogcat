@@ -9,3 +9,6 @@
    #define LOGW(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
    #define LOGE(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
    //ANDROID_LOG_INFO 为android日的等级，TAG为日志过滤的关键字
+   
+  #  获取cmdline的时候，不同的android系统 可能需要android 系统添加read权限，才能进行读取，或者setenforce 0 关闭掉selinux查看是否能够正常的读取即可
+  根据avc的log来查看需要添加的权限信息即可
