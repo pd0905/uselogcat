@@ -1,0 +1,11 @@
+* android 当中 native代码使用LOGI的方式：
+1.Android.mk 文件当中添加 LOCAL_LDLIBS:=-L$(SYSROOT)/usr/lib -llog  或者添加 LOCAL_LDLIBS := -llog 
+
+2.cpp文件当中添加
+   #include <android/log.h>
+   #define LOGV(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)//ANDROID_LOG_INFO为日志级   TAG为日志过滤的标志
+   #define LOGD(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+   #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+   #define LOGW(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+   #define LOGE(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+   //ANDROID_LOG_INFO 为android日的等级，TAG为日志过滤的关键字
